@@ -223,6 +223,88 @@
   /* Scene-specific phone content visibility */
   .ph-scene { position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity .6s ease; display: flex; flex-direction: column; }
   .ph-scene.active { opacity: 1; pointer-events: auto; }
+
+  /* =============================================
+     RESPONSIVE — Mobile first
+     ============================================= */
+  @media (max-width: 768px) {
+    #stage { padding: 20px 16px; }
+
+    .display { font-size: clamp(2rem, 8vw, 3.5rem); }
+
+    .body-text { font-size: clamp(0.95rem, 4vw, 1.2rem); line-height: 1.7; }
+
+    .small-label { font-size: clamp(0.6rem, 2.5vw, 0.75rem); }
+
+    /* Phone wrapper: stack vertically on mobile */
+    .phone-wrapper {
+      flex-direction: column;
+      gap: 24px;
+      padding: 0;
+    }
+    .phone-wrapper .text-side {
+      text-align: center;
+      order: -1;
+    }
+    .phone-wrapper .text-side .rule-left { margin: 24px auto; }
+
+    /* Smaller phone on mobile */
+    .phone {
+      width: 200px;
+      height: 410px;
+      border-radius: 28px;
+      animation: none; /* disable tilt on mobile — too distracting */
+    }
+    .phone .notch { width: 60px; height: 16px; top: 6px; border-radius: 8px; }
+    .phone .home-ind { width: 60px; height: 3px; bottom: 4px; }
+    .phone-iframe { border-radius: 28px; }
+
+    /* Face cards smaller */
+    .face-grid { gap: 10px; margin-top: 20px; }
+    .face-card { width: 90px; height: 120px; border-radius: 12px; }
+
+    /* Logo smaller */
+    .yag-logo-mark { width: 80px; height: 80px; margin-bottom: 14px; }
+    .yag-logo-text { font-size: clamp(4rem, 20vw, 7rem); }
+    .yag-logo-sub { font-size: clamp(0.65rem, 2.5vw, 0.9rem); letter-spacing: 0.15em; }
+    .yag-logo-url { font-size: clamp(0.6rem, 2vw, 0.75rem); margin-top: 20px; }
+
+    /* Corner marks */
+    .corner-mark { font-size: 0.5rem; }
+    .corner-mark.tl { top: 16px; left: 16px; }
+    .corner-mark.tl img { width: 14px; height: 14px; }
+    .corner-mark.br { bottom: 16px; right: 16px; }
+
+    .scroll-arrow { bottom: 24px; }
+
+    /* Logo rings */
+    .logo-ring { width: 150px; height: 150px; }
+  }
+
+  /* Extra small screens (iPhone SE etc) */
+  @media (max-width: 380px) {
+    #stage { padding: 14px 12px; }
+    .display { font-size: clamp(1.6rem, 7vw, 2.5rem); }
+    .body-text { font-size: clamp(0.85rem, 3.5vw, 1rem); }
+    .phone { width: 170px; height: 350px; border-radius: 24px; }
+    .phone .notch { width: 50px; height: 14px; }
+    .phone-iframe { border-radius: 24px; }
+    .face-card { width: 75px; height: 100px; }
+    .yag-logo-mark { width: 60px; height: 60px; }
+  }
+
+  /* Landscape mobile */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .phone-wrapper { flex-direction: row; gap: 20px; }
+    .phone-wrapper .text-side { order: 0; }
+    .phone { width: 150px; height: 310px; border-radius: 22px; }
+    .phone .notch { width: 50px; height: 12px; top: 5px; }
+    .phone-iframe { border-radius: 22px; }
+    .display { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+    .body-text { font-size: clamp(0.8rem, 2vw, 1rem); }
+    .face-grid { margin-top: 12px; }
+    .face-card { width: 70px; height: 90px; }
+  }
 </style>
 </head>
 <body>
